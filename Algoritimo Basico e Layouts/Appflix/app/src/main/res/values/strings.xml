@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Appflix</string>
+    <string name="menu_mensagem" />
+    <string name="audio">Ativar/Silênciar Audio</string>
+    <string name="favoritar">Favoritar</string>
+    <string name="eps">Episódios</string>
+    <string name="house">Reprodutor de Vídeo</string>
+    <string name="play">Play/Pause</string>
+    <string name="avancar10">Avançar 10 segundos</string>
+    <string name="voltar">Voltar 10 segundos</string>
+</resources>
