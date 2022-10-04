@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardElevation="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <LinearLayout
+            android:id="@+id/LLayout_NomeUser_TimePost"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_Perfil_Usuario"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                tools:srcCompat="@drawable/icons8user_96" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtNomeUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="0"
+                    android:gravity="bottom|center|start"
+                    android:text="Dono do Post #1033"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTimePost"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|start|top"
+                    android:text="Agora mesmo" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgPost"
+            android:layout_width="match_parent"
+            android:layout_height="215dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/imagem1" />
+
+        <TextView
+            android:id="@+id/txtDescPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Descrição / Legenda relacionada ao post acima" />
+
+        <LinearLayout
+            android:id="@+id/LLayout_Buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|right"
+            android:orientation="horizontal"
+            android:paddingRight="8dp">
+
+            <LinearLayout
+                android:id="@+id/LLayout_MoreButtons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp">
+
+                <Button
+                    android:id="@+id/btnMoreOptions"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="150dp"
+                    android:layout_marginRight="150dp"
+                    android:layout_weight="0"
+                    android:drawableLeft="@drawable/ic_more_horiz_24"
+                    android:textColor="#A499A3"
+                    app:backgroundTint="#FFFFFF" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnComentarPost"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:drawableLeft="@drawable/ic_comentar_24"
+                android:textColor="#A499A3"
+                app:backgroundTint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnCurtirPost"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0"
+                android:drawableLeft="@drawable/ic_gostei_24"
+                android:gravity="center"
+                android:textColor="#A499A3"
+                app:backgroundTint="#FFFFFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
