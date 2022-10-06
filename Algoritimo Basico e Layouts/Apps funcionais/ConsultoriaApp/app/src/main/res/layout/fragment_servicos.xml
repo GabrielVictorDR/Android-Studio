@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        tools:context=".ui.servicos.ServicosFragment">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:srcCompat="@drawable/servicos_oferecidos" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_novidade"
+            android:drawablePadding="8dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
+            android:text="Serviços que oferecemos!"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:drawableLeft="@drawable/ic_servicos_desc"
+            android:drawablePadding="8dp"
+            android:text="Treinamento e Suporte"
+            android:textColor="#272727"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableTint="#1F3BA2" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sodales magna. Donec ac sagittis orci, sit amet consequat lorem. Nam eget aliquam tellus.
+                      \n\nNulla lorem ligula, convallis eu tempus in, faucibus quis eros. Proin orci ipsum, fermentum ac luctus a, dignissim quis dui. Etiam sed feugiat ipsum.
+                      \n\nNunc vehicula quis ex a euismod. Ut vitae lorem at leo tristique volutpat. Fusce eget vulputate magna, ac fermentum felis. Nulla suscipit mauris vel gravida porta." />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:srcCompat="@drawable/treinamento" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Solicitar" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/ic_indicardores_desc"
+            android:drawablePadding="5dp"
+            android:text="Força de Vendas"
+            android:textColor="#272727"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableTint="#4B76E1" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sodales magna. Donec ac sagittis orci, sit amet consequat lorem. Nam eget aliquam tellus. Nulla lorem ligula, convallis eu tempus in, faucibus quis eros." />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/graficos" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consultar" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/ic_sucesso_desc"
+            android:drawablePadding="5dp"
+            android:text="Cases de Sucesso!"
+            android:textColor="#272727"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableTint="#1F3BA2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sodales magna. Donec ac sagittis orci, sit amet consequat lorem. Nam eget aliquam tellus. Nulla lorem ligula, convallis eu tempus in, faucibus quis eros. \n\nProin orci ipsum, fermentum ac luctus a, dignissim quis dui. Etiam sed feugiat ipsum. Nunc vehicula quis ex a euismod. \n\nUt vitae lorem at leo tristique volutpat. Fusce eget vulputate magna, ac fermentum felis. Nulla suscipit mauris vel gravida porta." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="100dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/cases" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/marca" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ver Mais" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
