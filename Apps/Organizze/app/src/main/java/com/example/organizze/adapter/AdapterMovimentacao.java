@@ -19,8 +19,8 @@ import java.util.List;
 
 public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentacao.MyViewHolder> {
 
-    List<Movimentacao> movimentacoes;
-    Context context;
+    private List<Movimentacao> movimentacoes;
+    private Context context;
 
     public AdapterMovimentacao(List<Movimentacao> movimentacoes, Context context) {
         this.movimentacoes = movimentacoes;
@@ -29,7 +29,8 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_movimentacao, parent, false);
+        View itemLista = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.adapter_movimentacao, parent, false);
         return new MyViewHolder(itemLista);
     }
 
@@ -41,6 +42,7 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
         holder.titulo.setText(movimentacao.getDescricao());
         holder.valor.setText(String.valueOf(movimentacao.getValor()));
         holder.categoria.setText(movimentacao.getCategoria());
+        holder.valor.setTextColor(context.getResources().getColor(R.color.colorAccentReceita));
 
         if (movimentacao.getTipo() == "d" || movimentacao.getTipo().equals("d")) {
             holder.valor.setTextColor(context.getResources().getColor(R.color.teal_200));

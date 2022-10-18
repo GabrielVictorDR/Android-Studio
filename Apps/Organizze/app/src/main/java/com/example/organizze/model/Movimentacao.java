@@ -12,11 +12,16 @@ public class Movimentacao {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
+    private String key;
     private String data;
     private String categoria;
     private String descricao;
     private String tipo;
     private double valor;
+
+    public String getKey() { return key; }
+
+    public void setKey(String key) { this.key = key; }
 
     public String getData() {
         return data;

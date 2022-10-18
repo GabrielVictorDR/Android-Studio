@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="3dp"
-    >
+    android:layout_marginBottom="5dp"
+    android:elevation="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,14 +38,14 @@
 
         </LinearLayout>
 
-            <TextView
-                android:id="@+id/textAdapterCategoria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Categoria"
-                android:textColor="#696969"
-                android:textSize="14sp" />
+        <TextView
+            android:id="@+id/textAdapterCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="Categoria"
+            android:textColor="#696969"
+            android:textSize="14sp" />
 
 
     </LinearLayout>

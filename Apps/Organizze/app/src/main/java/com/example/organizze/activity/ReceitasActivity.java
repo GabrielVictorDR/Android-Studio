@@ -28,7 +28,7 @@ public class ReceitasActivity extends AppCompatActivity {
     private TextInputEditText campoData, campoCategoria, campoDescricao;
 
     private FirebaseAuth mAuth = ConfiguracaoFirebase.getFirebaseAutenticacao();
-    private DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference firebaseRef = FirebaseDatabase.getInstance().getReference();
 
     private Movimentacao movimentacao;
 
@@ -43,7 +43,7 @@ public class ReceitasActivity extends AppCompatActivity {
 
         campoValor = findViewById(R.id.editValorRecieta);
         campoData = findViewById(R.id.editDataReceita);
-        campoCategoria = findViewById(R.id.editCategoriaReceita);
+        campoCategoria = findViewById(R.id.editCategoriaReceita1);
         campoDescricao = findViewById(R.id.editDescricaoReceita);
 
         campoData.setText(DateCustom.dataAtual());
@@ -59,8 +59,8 @@ public class ReceitasActivity extends AppCompatActivity {
             receitaGerada = Double.parseDouble( campoValor.getText().toString() );
 
             movimentacao.setValor(receitaGerada);
-            movimentacao.setCategoria( campoCategoria.getText().toString() );
-            movimentacao.setDescricao( campoDescricao.getText().toString() );
+            movimentacao.setCategoria( campoDescricao.getText().toString() );
+            movimentacao.setDescricao( campoCategoria.getText().toString() );
             movimentacao.setData( campoData.getText().toString() );
             movimentacao.setTipo( "r" );
 
@@ -68,6 +68,8 @@ public class ReceitasActivity extends AppCompatActivity {
 
             atualizarReceita(receitaAtualizada);
             movimentacao.salvar( campoData.getText().toString() );
+
+            finish();
         }
 
     }
@@ -82,7 +84,7 @@ public class ReceitasActivity extends AppCompatActivity {
 
         String email = mAuth.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(email);
-        DatabaseReference usuarioRef = mDataBase.child("usuarios").child(idUsuario);
+        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
         usuarioRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -101,7 +103,7 @@ public class ReceitasActivity extends AppCompatActivity {
     public void atualizarReceita(Double receita){
         String email = mAuth.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(email);
-        DatabaseReference usuarioRef = mDataBase.child("usuarios").child(idUsuario);
+        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
         usuarioRef.child("receitaTotal").setValue(receita);
     }
