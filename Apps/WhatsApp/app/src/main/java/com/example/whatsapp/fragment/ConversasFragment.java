@@ -1,0 +1,31 @@
+package com.example.whatsapp.fragment;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.whatsapp.R;
+import com.example.whatsapp.activity.ArquivadasActivity;
+
+public class ConversasFragment extends Fragment {
+
+    public ConversasFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_conversas, container, false);
+    }
+
+    public void abrirConversasArquivadas(View view){
+        startActivity(new Intent(getActivity(), ArquivadasActivity.class));
+    }
+}
