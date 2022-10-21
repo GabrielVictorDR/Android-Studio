@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.whatsapp.R;
 import com.example.whatsapp.config.ConfiguracaoFirebase;
 import com.example.whatsapp.helper.Base64Custom;
+import com.example.whatsapp.helper.UsuarioFirebase;
 import com.example.whatsapp.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private MaskedEditText campoNro;
+    private EditText campoNome;
     private Button cadastrarLogar;
 
     @Override
@@ -39,15 +41,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         campoNro = findViewById(R.id.editTelefone);
+        campoNome = findViewById(R.id.txtNovoNomeUsuario);
         cadastrarLogar = findViewById(R.id.btnLoginCadastro);
 
         cadastrarLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (!campoNro.getText().toString().equals("")) {
+                if ( !campoNro.getText().toString().equals("") && !campoNome.getText().toString().equals("") ) {
 
-                    /*
+                     /*
                      * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                      * CUIDADO, GAMBIARRA A FRENTE (PS: PREGUIÇA DE CONFIGURAR SING IN POR TELEFONE NO FIREBASE);
                      * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -61,11 +64,12 @@ public class LoginActivity extends AppCompatActivity {
                     //seta o numero do usuario como o texto completo da mascara.
                     usuario.setNumero(campoNro.getText().toString());
                     usuario.setEmail(format);
+                    usuario.setNome(campoNome.getText().toString());
                     usuario.setSenha("123456_always");
                     login();
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Você esqueceu de digitar o número de telefone.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Preencha todos os campos.", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -111,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                         String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
                                         usuario.setId(idUsuario);
+                                        UsuarioFirebase.atualizarNomeUsuario(usuario.getNome());
                                         usuario.salvar();
 
                                         auth.signInWithEmailAndPassword(usuario.getEmail(), usuario.getSenha());
@@ -144,9 +149,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     public void termsAndConditions(View view){
@@ -166,4 +168,5 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.create();
         alertDialog.show();
     }
+
 }

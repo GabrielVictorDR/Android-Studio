@@ -9,6 +9,7 @@
         android:id="@+id/imgFotoPerifl"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginRight="3dp"
         android:src="@drawable/portrait_placeholder"
         app:civ_border_color="#FF000000"
         app:civ_border_width="0dp"

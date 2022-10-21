@@ -17,4 +17,13 @@
     <style name="Toolbar" parent="Theme.AppCompat.NoActionBar">
 
     </style>
+
+    <style name="Theme.WhatsApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.WhatsApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.WhatsApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
