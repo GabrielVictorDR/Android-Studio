@@ -10,6 +10,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMensagens"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
@@ -28,14 +29,14 @@
             android:background="@drawable/fundo_msg_chat"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingLeft="8dp"
+            android:paddingLeft="16dp"
             android:paddingTop="1dp"
-            android:paddingRight="8dp">
+            android:paddingRight="16dp">
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/txtMenssagem"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:hint="Mensagem..."
@@ -43,7 +44,7 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imgEnviarFotoConversa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_camera" />
@@ -51,11 +52,12 @@
         </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/fabEnviarMensagem"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/purple_200"
             android:clickable="true"
+            android:onClick="enviarMensagem"
             android:src="@drawable/ic_enviar"
             android:tint="@color/purple_200"
             app:backgroundTint="@color/purple_200"

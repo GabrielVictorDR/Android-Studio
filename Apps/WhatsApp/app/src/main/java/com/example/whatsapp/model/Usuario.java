@@ -6,10 +6,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Usuario {
+public class Usuario implements Serializable {
 
     private DatabaseReference mDataBase;
 
@@ -48,12 +49,8 @@ public class Usuario {
     }
 
     @Exclude
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
     @Exclude
     public String getSenha() {
@@ -91,7 +88,6 @@ public class Usuario {
         HashMap<String, Object> usuarioMap = new HashMap<>();
         usuarioMap.put("email", getEmail());
         usuarioMap.put("nome", getNome());
-        usuarioMap.put("numero", getNumero());
         usuarioMap.put("foto", getFoto());
 
         return usuarioMap;

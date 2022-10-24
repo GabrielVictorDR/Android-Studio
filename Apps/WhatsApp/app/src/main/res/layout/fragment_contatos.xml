@@ -12,7 +12,7 @@
         android:layout_height="70dp"
         android:gravity="top"
         android:orientation="horizontal"
-        android:paddingLeft="12dp"
+        android:paddingLeft="13dp"
         android:paddingRight="8dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"

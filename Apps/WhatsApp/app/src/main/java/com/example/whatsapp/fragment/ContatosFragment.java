@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whatsapp.R;
 import com.example.whatsapp.activity.ChatActivity;
 import com.example.whatsapp.adapter.ContatosAdapter;
+import com.example.whatsapp.helper.UsuarioFirebase;
 import com.example.whatsapp.model.Usuario;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +36,7 @@ public class ContatosFragment extends Fragment {
     private ArrayList<Usuario> listaUsuaios = new ArrayList<>();
 
     private DatabaseReference usuariosRef;
+    private FirebaseUser usuarioAtual;
 
     private ValueEventListener valueEventListenerContatos;
 
@@ -54,6 +57,8 @@ public class ContatosFragment extends Fragment {
         recyclerContatos.setHasFixedSize(true);
         recyclerContatos.setAdapter(adapter);
 
+        usuarioAtual = UsuarioFirebase.getUsuarioAtual();
+
         recyclerContatos.addOnItemTouchListener( new RecyclerItemClickListener(
                 getActivity(),
                 recyclerContatos,
@@ -61,7 +66,9 @@ public class ContatosFragment extends Fragment {
                     @Override
                     public void onItemClick(View view, int position) {
 
+                        Usuario usuarioSelecionado = listaUsuaios.get( position );
                         Intent i = new Intent(getActivity(), ChatActivity.class);
+                        i.putExtra("chatContato", usuarioSelecionado);
                         startActivity( i );
 
                     }
@@ -78,14 +85,14 @@ public class ContatosFragment extends Fragment {
                 }
         ));
 
-        recuperarContatos();
+
         return view;
     }
 
     @Override
     public void onStart() {
+        recuperarContatos();
         super.onStart();
-        Toast.makeText(getActivity(), "Contatos", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -105,11 +112,17 @@ public class ContatosFragment extends Fragment {
                 for (DataSnapshot dados : snapshot.getChildren()) {
 
                     Usuario usuario = dados.getValue(Usuario.class);
-                    listaUsuaios.add(usuario);
+
+                    String emailUsuarioAtual = usuario.getNumero().replace(" ", "") + "@phone.com";
+
+                    if( !emailUsuarioAtual.equals( usuarioAtual.getEmail()) ) {
+                        listaUsuaios.add(usuario);
+                    }
 
                 }
 
                 adapter.notifyDataSetChanged();
+
             }
 
             @Override

@@ -7,7 +7,7 @@
     tools:context=".fragment.MensagensFragment">
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/layoutAbrirArq"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -24,7 +24,6 @@
             android:drawableStart="@drawable/ic_arquivadas"
             android:drawablePadding="3dp"
             android:gravity="center|start"
-            android:onClick="abrirArquivadas"
             android:text="Arquivadas"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -35,7 +34,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:onClick="abrirArquivadas"
             android:text="0"
             android:textAlignment="textEnd"
             android:textSize="16sp"
@@ -50,6 +48,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutAbrirArq" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
