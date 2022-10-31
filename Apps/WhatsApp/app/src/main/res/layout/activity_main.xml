@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/purple_500"
+
         app:stl_indicatorAlwaysInCenter="false"
         app:stl_indicatorWithoutPadding="false"
         app:stl_indicatorInFront="false"
@@ -24,17 +25,22 @@
         app:stl_indicatorThickness="2dp"
         app:stl_indicatorWidth="auto"
         app:stl_indicatorCornerRadius="2dp"
-        app:stl_overlineColor="@color/purple_500"
+
+        app:stl_overlineColor="#FFFFFF"
         app:stl_overlineThickness="0dp"
-        app:stl_underlineColor="@color/purple_500"
+
+        app:stl_underlineColor="#FFFFFF"
         app:stl_underlineThickness="1dp"
+
         app:stl_dividerColor="@android:color/transparent"
         app:stl_dividerThickness="1dp"
+
         app:stl_defaultTabTextAllCaps="true"
         app:stl_defaultTabTextColor="@color/white"
         app:stl_defaultTabTextSize="12sp"
         app:stl_defaultTabTextHorizontalPadding="16dp"
         app:stl_defaultTabTextMinWidth="0dp"
+
         app:stl_distributeEvenly="true"
         app:stl_clickable="true"
         app:stl_titleOffset="24dp"

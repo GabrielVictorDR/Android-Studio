@@ -18,65 +18,53 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ContatosAdapter extends RecyclerView.Adapter<ContatosAdapter.MyViewHolder>{
+public class GrupoSelecionadoAdapter extends RecyclerView.Adapter<GrupoSelecionadoAdapter.MyViewHolder> {
 
     private List<Usuario> contatos;
     private Context context;
 
-    public ContatosAdapter(List<Usuario> list, Context context){
+    public GrupoSelecionadoAdapter(List<Usuario> list, Context context){
         this.contatos = list;
         this.context = context;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.contatos_adapter, parent, false);
-        return new MyViewHolder(itemLista);
+    public GrupoSelecionadoAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_usuario_selecionado, parent, false);
+        return new GrupoSelecionadoAdapter.MyViewHolder(itemLista);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(GrupoSelecionadoAdapter.MyViewHolder holder, int position) {
 
         Usuario usuario = contatos.get(position);
-        boolean cabecalho = usuario.getNumero().isEmpty();
 
         holder.nome.setText(usuario.getNome());
-        holder.telefone.setText(usuario.getNumero());
 
         if(usuario.getFoto() != null){
             Uri uri = Uri.parse(usuario.getFoto());
             Glide.with(context).load(uri).into(holder.foto);
         } else  {
-            if ( cabecalho ){
-                holder.foto.setImageResource(R.drawable.icone_grupo);
-                holder.telefone.setVisibility(View.GONE);
-            }else {
                 holder.foto.setImageResource(R.drawable.portrait_placeholder);
-            }
         }
     }
 
     @Override
     public int getItemCount() {
-
         return contatos.size();
-
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView foto;
-        TextView nome, telefone;
+        private CircleImageView foto;
+        private TextView nome;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView){
             super(itemView);
 
-            foto = itemView.findViewById(R.id.imgFotoPerifl);
-            nome = itemView.findViewById(R.id.lblNomeContato);
-            telefone = itemView.findViewById(R.id.lblEmailContato);
-
+            foto = itemView.findViewById(R.id.imgFotoMembroSelected);
+            nome = itemView.findViewById(R.id.lblNomeMembroSelected);
         }
-
     }
 
 }

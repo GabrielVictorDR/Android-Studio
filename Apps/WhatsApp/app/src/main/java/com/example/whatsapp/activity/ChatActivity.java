@@ -148,8 +148,7 @@ public class ChatActivity extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance().getReference();
 
-        //salvarConversa();
-
+        recuperarMensagens();
     }
 
     @Override
@@ -234,7 +233,6 @@ public class ChatActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        recuperarMensagens();
         super.onStart();
     }
 
@@ -281,6 +279,8 @@ public class ChatActivity extends AppCompatActivity {
                 .setValue(mensagem);
 
         txtMensagem.setText("");
+
+        salvarConversa(mensagem);
     }
 
     private void recuperarMensagens(){
@@ -294,24 +294,16 @@ public class ChatActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
 
             @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) { }
 
             @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
 
     }
@@ -321,7 +313,9 @@ public class ChatActivity extends AppCompatActivity {
         conversaRemetente.setIdUsuario(idUsuarioRemetente);
         conversaRemetente.setIdDestinatario( idUsuarioDestinatario );
         conversaRemetente.setUltimaMensagem( msg.getMensagem() );
-        //conversaRemetente.setUsuario_da_conversa(  );
+        conversaRemetente.setUsuario_da_conversa( destinatario );
+
+        conversaRemetente.salvar();
     }
 
 }

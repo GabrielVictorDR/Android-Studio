@@ -10,11 +10,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsapp.R;
 import com.example.whatsapp.activity.ChatActivity;
+import com.example.whatsapp.activity.GrupoActivity;
 import com.example.whatsapp.adapter.ContatosAdapter;
 import com.example.whatsapp.helper.UsuarioFirebase;
 import com.example.whatsapp.model.Usuario;
@@ -67,10 +69,20 @@ public class ContatosFragment extends Fragment {
                     public void onItemClick(View view, int position) {
 
                         Usuario usuarioSelecionado = listaUsuaios.get( position );
-                        Intent i = new Intent(getActivity(), ChatActivity.class);
-                        i.putExtra("chatContato", usuarioSelecionado);
-                        startActivity( i );
+                        boolean cabecalho = usuarioSelecionado.getNumero().isEmpty();
 
+                        if( cabecalho ){
+
+                            Intent i = new Intent(getActivity(), GrupoActivity.class);
+                            startActivity(i);
+
+                        } else {
+
+                            Intent i = new Intent(getActivity(), ChatActivity.class);
+                            i.putExtra("chatContato", usuarioSelecionado);
+                            startActivity(i);
+
+                        }
                     }
 
                     @Override
@@ -85,13 +97,19 @@ public class ContatosFragment extends Fragment {
                 }
         ));
 
+        usuariosRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
 
+        Usuario itemGrupo = new Usuario();
+        itemGrupo.setNome("Novo Grupo");
+        itemGrupo.setNumero("");
+
+        listaUsuaios.add(itemGrupo);
+        recuperarContatos();
         return view;
     }
 
     @Override
     public void onStart() {
-        recuperarContatos();
         super.onStart();
     }
 
@@ -102,7 +120,6 @@ public class ContatosFragment extends Fragment {
     }
 
     public void recuperarContatos() {
-        usuariosRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
 
         valueEventListenerContatos = usuariosRef.addValueEventListener(new ValueEventListener() {
             @Override

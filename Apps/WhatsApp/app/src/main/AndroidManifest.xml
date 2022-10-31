@@ -13,26 +13,28 @@
         android:roundIcon="@drawable/whatsapp_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsApp">
-
-
+        <activity
+            android:name=".activity.CriarGrupoActivity"
+            android:label="@string/title_activity_criar_grupo"
+            android:theme="@style/Theme.WhatsApp.NoActionBar"
+            android:parentActivityName=".activity.GrupoActivity"></activity>
+        <activity
+            android:name=".activity.GrupoActivity"
+            android:label="@string/title_activity_grupo"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/Theme.WhatsApp.NoActionBar" />
         <activity
             android:name=".activity.ChatActivity"
             android:label="@string/title_activity_chat"
-            android:theme="@style/Theme.WhatsApp.NoActionBar"
-            android:parentActivityName=".activity.MainActivity">
-
-        </activity>
-
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/Theme.WhatsApp.NoActionBar" />
         <activity
             android:name=".activity.ArquivadasActivity"
             android:parentActivityName=".activity.MainActivity" />
-
         <activity
             android:name=".activity.ConfigActivity"
             android:parentActivityName=".activity.MainActivity" />
-
         <activity android:name=".activity.MainActivity" />
-
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
+
 </manifest>
